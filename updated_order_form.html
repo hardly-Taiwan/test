@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>訂購表單</title>
+</head>
+<body>
+    <h1>訂購表單</h1>
+    <form action="/submit-order" method="post" onsubmit="return validateCheckboxes();">
+        <!-- Name Input -->
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Hot Items Selection -->
+        <label for="hot-item">選擇熱品項：</label>
+        <select id="hot-item" name="hot_item" required>
+            <option value="黑糖豆花">黑糖豆花</option>
+            <option value="薑汁豆花">薑汁豆花</option>
+            <option value="燒仙草豆花">燒仙草豆花</option>
+            <option value="紅豆湯豆花">紅豆湯豆花</option>
+            <option value="燒仙草">燒仙草</option>
+            <option value="紅豆湯">紅豆湯</option>
+        </select><br><br>
+
+        <!-- Fresh Ingredients Checkboxes -->
+        <label>選擇新鮮配料：</label><br>
+        <input type="checkbox" id="紅豆" name="ingredients" value="紅豆">
+        <label for="紅豆">紅豆</label><br>
+        <input type="checkbox" id="綠豆" name="ingredients" value="綠豆">
+        <label for="綠豆">綠豆</label><br>
+        <input type="checkbox" id="大豆" name="ingredients" value="大豆">
+        <label for="大豆">大豆</label><br>
+        <input type="checkbox" id="紫米" name="ingredients" value="紫米">
+        <label for="紫米">紫米</label><br>
+        <input type="checkbox" id="小薏仁" name="ingredients" value="小薏仁">
+        <label for="小薏仁">小薏仁</label><br>
+        <input type="checkbox" id="珍珠" name="ingredients" value="珍珠">
+        <label for="珍珠">珍珠</label><br>
+        <input type="checkbox" id="芋圓" name="ingredients" value="芋圓">
+        <label for="芋圓">芋圓</label><br>
+        <input type="checkbox" id="白玉湯圓" name="ingredients" value="白玉湯圓">
+        <label for="白玉湯圓">白玉湯圓</label><br>
+        <input type="checkbox" id="招牌粉粿" name="ingredients" value="招牌粉粿">
+        <label for="招牌粉粿">招牌粉粿</label><br>
+        <input type="checkbox" id="黑糖粉粿" name="ingredients" value="黑糖粉粿">
+        <label for="黑糖粉粿">黑糖粉粿</label><br>
+        <input type="checkbox" id="綜合粉粿(招牌+黑糖)" name="ingredients" value="綜合粉粿(招牌+黑糖)">
+        <label for="綜合粉粿(招牌+黑糖)">綜合粉粿(招牌+黑糖)</label><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">提交訂單</button>
+    </form>
+
+    <script>
+        function validateCheckboxes() {
+            const checkboxes = document.querySelectorAll('input[name="ingredients"]:checked');
+            if (checkboxes.length < 3) {
+                alert('請選擇至少三項新鮮配料！');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
